@@ -47,6 +47,17 @@ class ProductServiceDB{
             console.log(error);
         }
     }
+
+    async update(id, newProduct){
+        //newProduct debe ser un objeto
+
+        try {
+            return await this.db.from(this.tableName).where('id', id).update(newProduct).returning("*");
+        } catch (error) {
+            console.log(error);
+        }   
+    }
+
 }
 
 module.exports = ProductServiceDB;
