@@ -38,6 +38,15 @@ class ProductServiceDB{
             console.log(error);
         }
     }
+
+    async create(product){
+        //product debe ser un array con un objeto
+        try{
+            return await this.db.from(this.tableName).returning('id').insert(product);
+        } catch(error){
+            console.log(error);
+        }
+    }
 }
 
 module.exports = ProductServiceDB;
