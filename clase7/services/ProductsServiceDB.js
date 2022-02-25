@@ -58,6 +58,13 @@ class ProductServiceDB{
         }   
     }
 
+    async deleteById(id){
+        try {
+            await this.db.from(this.tableName).where({id : id}).del();
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
 
 module.exports = ProductServiceDB;
