@@ -22,6 +22,15 @@ class ProductServiceDB{
             }
         })(); 
     }
+
+    async getAll(){
+        try {
+            return await this.db.from(this.tableName).orderBy("id","asc");  
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 }
 
 module.exports = ProductServiceDB;
