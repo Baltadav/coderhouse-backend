@@ -31,6 +31,13 @@ class ProductServiceDB{
         }
     }
 
+    async getById(id){
+        try {
+            return await this.db.from(this.tableName).where('id', id);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
 
 module.exports = ProductServiceDB;
